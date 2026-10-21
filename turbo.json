@@ -1,0 +1,33 @@
+{
+    "$schema": "https://turborepo.dev/schema.json",
+    "ui": "tui",
+    "globalEnv": ["NODE_ENV", "VERCEL_ENV", "VERCEL_URL"],
+    "globalPassThroughEnv": [
+        "CONVEX_DEPLOYMENT",
+        "CONVEX_DEPLOY_KEY",
+        "VERCEL_OIDC_TOKEN"
+    ],
+    "tasks": {
+        "build": {
+            "dependsOn": ["^build"],
+            "inputs": ["$TURBO_DEFAULT$", ".env*"],
+            "outputs": [".next/**", "!.next/cache/**", "!.next/dev/**"],
+            "env": [
+                "NEXT_PUBLIC_CONVEX_URL",
+                "NEXT_PUBLIC_CONVEX_SITE_URL",
+                "NEXT_PUBLIC_SITE_URL",
+                "NEXT_PUBLIC_VERCEL_URL"
+            ]
+        },
+        "check-types": {
+            "dependsOn": ["^check-types"]
+        },
+        "lint": {
+            "dependsOn": ["^lint"]
+        },
+        "dev": {
+            "cache": false,
+            "persistent": true
+        }
+    }
+}

@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "@party-mixer/ui/theme.css";
+
+@source "../../../../packages/ui/src";

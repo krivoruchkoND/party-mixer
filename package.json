@@ -1,0 +1,32 @@
+{
+  "name": "party-mixer",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "packageManager": "bun@1.2.19",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types",
+    "format": "prettier --write \"**/*.{ts,tsx,md,css}\"",
+    "convex-dev": "turbo run dev --filter=@party-mixer/backend"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "turbo": "^2.10.12",
+    "typescript": "^6.0.3"
+  },
+  "trustedDependencies": ["@tailwindcss/oxide"],
+  "overrides": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "zod": "4.3.6",
+    "eslint": "9.39.4"
+  }
+}
